@@ -5,8 +5,8 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "NODE_ENV=development ./node_modules/.bin/netlify-lambda serve src",
-    "build": "NODE_ENV=production ./node_modules/.bin/netlify-lambda build src"
+    "start": "NODE_ENV=development ./node_modules/.bin/netlify-lambda serve functions",
+    "build": "NODE_ENV=production ./node_modules/.bin/netlify-lambda build functions"
   },
   "start": "node server.js",
   "author": "Pranjay Vats",
