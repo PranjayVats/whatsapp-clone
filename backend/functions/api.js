@@ -5,7 +5,7 @@ import Pusher from "pusher";
 import Cors from "cors";
 import dotenv from "dotenv";
 import serverless from "serverless-http";
-
+const router = express.Router();
 dotenv.config({ path: ".env" });
 
 //app config
@@ -53,9 +53,9 @@ db.once("open", () => {
 });
 
 //api routes
-app.get("/", (req, res) => res.status(200).send("Server is Running"));
+router.get("/", (req, res) => res.status(200).send("Server is Running"));
 // "/" is end point
-app.get("/messages/sync", (req, res) => {
+router.get("/messages/sync", (req, res) => {
   Messages.find((err, data) => {
     if (err) {
       res.status(500).send(err);
@@ -75,6 +75,8 @@ app.post("/messages/new", (req, res) => {
     }
   });
 });
+
+app.use("/.netlify/functions/api", router);
 
 //listener
 app.listen(port, () => console.log(`Listening on localhost: ${port}`));
