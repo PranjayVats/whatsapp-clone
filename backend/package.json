@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "netlify deploy --prod"
   },
   "start": "node server.js",
   "author": "Pranjay Vats",
@@ -15,6 +15,9 @@
     "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "mongoose": "^6.0.4",
-    "pusher": "^5.0.0"
+    "netlify-cli": "^13.1.6",
+    "netlify-lambda": "^2.0.16",
+    "pusher": "^5.0.0",
+    "serverless-http": "^3.2.0"
   }
 }

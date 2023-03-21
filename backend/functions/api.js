@@ -1,11 +1,10 @@
 import express from "express";
-//express is server where our code will run
 import mongoose from "mongoose";
 import Messages from "./dbMessages.js";
 import Pusher from "pusher";
 import Cors from "cors";
 import dotenv from "dotenv";
-
+import serverless from "serverless-http";
 
 dotenv.config({ path: ".env" });
 
@@ -76,7 +75,7 @@ app.post("/messages/new", (req, res) => {
     }
   });
 });
-//
 
 //listener
 app.listen(port, () => console.log(`Listening on localhost: ${port}`));
+export const handler = serverless(app);
