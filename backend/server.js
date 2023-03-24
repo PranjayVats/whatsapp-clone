@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import Messages from "../dbMessages.js";
+import Messages from "./dbMessages.js";
 import Pusher from "pusher";
 import Cors from "cors";
 import dotenv from "dotenv";
@@ -32,10 +32,10 @@ mongoose.connect(connection_url, {
 }); //here we have connected with our database
 
 const db = mongoose.connection;
-db.once("open", () => {
+db.once("open", async () => {
   console.log("db is connected");
   const msgCollection = db.collection("messagecontents");
-  const changeStream = msgCollection.watch();
+  const changeStream = await msgCollection.watch();
 
   changeStream.on("change", (change) => {
     if (change.operationType === "insert") {
