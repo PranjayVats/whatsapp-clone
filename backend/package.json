@@ -5,8 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server",
-    "build": "node server"
+    "build": "netlify deploy --prod"
   },
   "author": "Pranjay Vats",
   "license": "ISC",
@@ -15,9 +14,9 @@
     "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "mongoose": "^6.0.4",
-    "netlify-cli": "^13.1.6",
-    "netlify-lambda": "^2.0.16",
+    "netlify-cli": "^12.7.2",
+    "netlify-lambda": "^2.0.15",
     "pusher": "^5.0.0",
-    "serverless-http": "^3.2.0"
+    "serverless-http": "^2.7.0"
   }
 }
